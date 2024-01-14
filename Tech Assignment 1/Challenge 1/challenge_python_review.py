@@ -80,7 +80,7 @@ def filter_strings(str_list):
     lst = []
     for str1 in str_list:
         # make sure the element is a string before performing string operations
-        if type(str1) is str and len(str1) > 4 and (
+        if type(str1) is not list and len(str1) > 4 and (
                 "a" in str1 or "e" in str1 or "i" in str1 or "o" in str1 or "u" in str1):
             lst.append(str1)
             # add the list elements to the new list if they meet the criteria
@@ -120,7 +120,7 @@ if __name__ == "__main__":
     print(count_letters("Web serving with FastAPI!"))
 
     print("Question 5")
-    print(filter_strings(["sda", "sajdasjdk"]))
+    print(filter_strings(["sda", "sajdasjdk", "jhgjhhtp", "732698"]))
 
     print("Question 6")
     print(is_palindrome(1234567.7654321))
