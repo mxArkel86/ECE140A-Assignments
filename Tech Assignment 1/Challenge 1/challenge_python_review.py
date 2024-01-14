@@ -3,6 +3,7 @@ import math
 
 def print_squares():
     """
+    The range function enumerates over the numbers 0-9, for the range to be 1-10, simply use n+1 instead of n
     """
 
     for n in range(10):
