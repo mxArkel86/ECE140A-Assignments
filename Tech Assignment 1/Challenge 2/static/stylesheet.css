@@ -1,0 +1,57 @@
+.my-name h2{
+    padding-left: 25px;
+    margin: 0;
+    transform: translate(0px, 30px);
+    font-size: xx-large;
+    color: white;
+}
+
+p{
+margin: 0;
+}
+
+.my-name img{
+width: 80px;
+border-radius: 100px;
+background-color: transparent;
+border-color: transparent;
+margin: 10px
+}
+
+.my-name{
+    background-color: #0C92D0;
+    margin: 0;
+}
+
+summary{
+    font-size: large;
+    font-family: Roboto;
+}
+
+.about-me{
+    margin-top:20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.about-me h2{
+margin: 20px 0;
+}
+
+.about-me h3{
+text-decoration-line: underline;
+}
+
+.about-me p{
+font-size: large;
+}
+
+.about-me ul li{
+font-size: large;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #ADE5FF;
+}
