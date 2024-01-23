@@ -6,6 +6,7 @@ import uvicorn
 
 app = FastAPI()
 
+# mount public folder so any requests that start with /public/ will use this
 app.mount("/public", StaticFiles(directory="public"), name="public")
 
 @app.get("/", response_class=HTMLResponse)

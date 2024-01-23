@@ -6,7 +6,7 @@ let error1 = document.getElementById("error1");
 let error2 = document.getElementById("error2");
 let error3 = document.getElementById("error3");
 
-
+// load once all the elements are loaded into DOM
 document.addEventListener('DOMContentLoaded', function() {
     stock1.addEventListener("input", function(e){
         error1.innerText = "";
@@ -18,14 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
         error3.innerText = "";
     });
 });
+
+// check if it is a valid ticker (REGEX)
 function valid_ticker(txt){
-    if (txt.length == 0)
-        return false;
-    
     const pattern = /^\$?[a-zA-Z0-9.]+$/;
     return pattern.test(txt);
 }
 
+// validate the request if the tickers are correct
 function verify_submit(){
     const v1 = valid_ticker(stock1.value);
     const v2 = valid_ticker(stock2.value);
@@ -34,7 +34,8 @@ function verify_submit(){
     if (v1 && v2 && v3){
         return true;
     }
-    
+
+    // notify which one is giving an error
     if (!v1){
         console.log("error1");
         error1.innerText = "Invalid Ticker";

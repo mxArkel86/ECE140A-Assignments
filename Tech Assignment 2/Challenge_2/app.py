@@ -8,6 +8,7 @@ import json
 
 app = FastAPI()
 
+# mount public folder (/public/...)
 app.mount("/public", StaticFiles(directory="public"), name="public")
 
 
@@ -23,27 +24,28 @@ def page():
         return HTMLResponse(content=html.read())
 
 
+# read the API key without having it in github
 with open("api_key.txt", "r") as f:
     api_key = f.read()
 
 stock_data = {}
 
 
-def post_stocks(stock1, stock2, stock3):
-    for i, stock in enumerate([stock1, stock2, stock3]):
-        stock = stock.upper()
+# start a new async process to run the code while a request already returned
+def post_stocks(stocks):
+    for i, stock in enumerate(stocks):
+        stock = stock.upper()  # standardize for url compatibility
         url = 'https://financialmodelingprep.com/api/v3/profile/' + stock + '?apikey=' + api_key
 
         response = urlopen(url)
         data_json = json.loads(response.read())
-        if len(data_json) == 0:
+        if len(data_json) == 0:  # if the data is not valid, make it known
             print(f"{stock} [{i}] does not exist")
             stock_data[i + 1] = "invalid"
             continue
 
-        ret_data = data_json[0]
+        ret_data = data_json[0]  # data = [{'companyName':...}]
         # print(ret_data)
-
 
         stock_data[i + 1] = {"companyName": ret_data["companyName"],
                              "industry": ret_data["industry"],
@@ -54,20 +56,23 @@ def post_stocks(stock1, stock2, stock3):
 @app.post("/stock", response_class=RedirectResponse)
 async def stock_post_form(background_tasks: BackgroundTasks, stock1: str = Form(...),
                           stock2: str = Form(...), stock3: str = Form(...)):
-    background_tasks.add_task(post_stocks, stock1, stock2, stock3)
 
+    background_tasks.add_task(post_stocks, [stock1, stock2, stock3])
+
+    # 303 = Redirect after put (use GET)
     return RedirectResponse(url="/page", status_code=303)
 
 
 @app.get("/stock/{number}", response_class=JSONResponse)
 async def stock_get(number: int):
-    if number <= 0 or number > 3:
+    # make sure number is valid
+    if number <= 0 or number > 3:  # is it in range of data?
         return {"error": "out of range"}
 
-    if number not in stock_data.keys():
+    if number not in stock_data.keys():  # data is not initialized yet
         return {"error": "data does not exist yet"}
 
-    if stock_data[number] == "invalid":
+    if stock_data[number] == "invalid":  # couldn't find the ticker
         return {"error": "invalid ticker symbol - does not exist"}
 
     return stock_data[number]
