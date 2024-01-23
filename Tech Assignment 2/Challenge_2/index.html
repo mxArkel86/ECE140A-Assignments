@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stock Information</title>
+        <link rel="stylesheet" href="public/stylesheet.css">
+    </head>
+    <body>
+        <form action="/stock" onsubmit="return verify_submit()" method="POST">
+            <h1>Stock Information Fetch</h1>
+            <p>This utility fetches basic information about select stocks, given their ticker symbol.</p>
+            <div>
+                <label>Stock 1:</label>
+                <input type="text" id="stock1" name="stock1" minlength="1">
+                <label id="error1" style="color: red"></label>
+            </div>
+            <div>
+                <label>Stock 2:</label>
+                <input type="text" id="stock2" name="stock2" minlength="1">
+                <label id="error2" style="color: red"></label>
+            </div>
+            <div>
+                <label>Stock 3:</label>
+                <input type="text" id="stock3" name="stock3" minlength="1">
+                <label id="error3" style="color: red"></label>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+        <script src="/public/js/index.js"></script>
+    </body>
+</html>

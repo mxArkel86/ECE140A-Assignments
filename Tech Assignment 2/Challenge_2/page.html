@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Page</title>
+        <link rel="stylesheet" href="public/stylesheet.css">
+    </head>
+    <body>
+        <form action="https://slidespace.icu/student" method="POST">
+            <h1>Student information POST</h1>
+            <p>It sends a POST request to the server to create a new student</p>
+            <div>
+                <label>First Name:</label>
+                <input type="text" name="first_name" minlength="3">
+            </div>
+            <div>
+                <label>Last Name:</label>
+                <input type="text" name="last_name" minlength="3">
+            </div>
+            <div>
+                <label>Student ID:</label>
+                <input type="text" name="student_id" minlength="5">
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+        <form action="https://slidespace.icu/api/studentfetch">
+            <h1>Student information PUT</h1>
+            <p>It sends a PUT request to the server to update an existing record</p>
+            <div>
+                <label>First Name:</label>
+                <input type="text" name="first_name" minlength="3">
+            </div>
+            <div>
+                <label>Last Name:</label>
+                <input type="text" name="last_name" minlength="3">
+            </div>
+            <div>
+                <label>Student ID:</label>
+                <input type="text" name="student_id" minlength="5">
+            </div>
+            <input class='btn' type="submit" value="Submit">
+        </form>
+        <h2>
+            Results: <span class='results'></span>
+        </h2>
+        <script src='public/js/slidespace.js'></script>
+        <script src="/public/js/page.js"></script>
+    </body>
+</html>
