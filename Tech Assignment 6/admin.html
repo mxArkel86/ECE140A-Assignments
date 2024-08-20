@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="static/admin.css" rel="stylesheet">
+    <link href="static/main.css" rel="stylesheet">
+    <script src="static/main.js"></script>
+    <script src="static/admin.js"></script>
+</head>
+
+<body>
+    <h1>Orders</h1>
+    <div id="order-grid">
+    </div>
+    <h1>Menu</h1>
+    
+    <div id="menu-grid">
+
+    </div>
+    <h1>Change Menu</h1>
+    <div style="display: grid;grid-template-columns: repeat(3,1fr);">
+        <form id="menu-add" action="/menu" method="POST">
+            <label class="form-title">Add Menu Item</label>
+            <div>
+                <label>Name:</label>
+                <input name="name" type="text" pattern="^[\w\- ]+$" title="name may include (A-z,0-9,-,' ')" maxlength="50" minlength="3" required>
+            </div>
+            <div>
+                <label>Price:</label>
+                <input name="price" type="number" min="0" max="999" required>
+            </div>
+            <input class="sb" type="submit" value="Submit">
+        </form>
+        <form id="menu-edit" action="/menu/%n" method="PUT">
+            <label class="form-title">Edit Menu Item</label>
+            <div>
+                <label>Item ID:</label>
+                <input name="id" type="number" min="1" required>
+            </div>
+            <div>
+                <label>New Name:</label>
+                <input name="name" type="text" pattern="^[\w\- ]+$" title="name may include (A-z,0-9,-,' ')" maxlength="50" required>
+            </div>
+            <div>
+                <label>New Price:</label>
+                <input name="price" type="number" min="0" max="999" required>
+            </div>
+            <input class="sb" type="submit" value="Submit">
+        </form>
+        <form id="menu-del" action="/menu/%n" method="DELETE">
+            <label class="form-title">Remove Menu Item</label>
+            <div>
+                <label>Item ID:</label>
+                <input name="id" type="number" min="1" required>
+            </div>
+            <input class="sb" type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="order-item" hidden>
+        <span class="item_id" hidden></span>
+        <div>
+            <span>Customer: </span>
+            <span class="cust_name"></span>
+        </div>
+        <div>
+            <span>Item: </span>
+            <span class="item_name"></span>
+        </div>
+        <div>
+            <span>Quantity: </span>
+            <span class="quantity"></span>
+        </div>
+        <div>
+            <button class="sb status"></button>
+        </div>
+        <div>
+            <button class="sb del-order">Delete Order</button>
+        </div>
+    </div>
+    <div class="menu-item" hidden>
+        <div class="mtitle">
+            <span class="item_id"></span>
+            <span class="item_name"></span>
+        </div>
+        <div class="mprice">
+            <span>( $</span>
+            <span class="item_price"></span>
+            <span>)</span>
+        </div>
+    </div>
+</body>
+
+</html>

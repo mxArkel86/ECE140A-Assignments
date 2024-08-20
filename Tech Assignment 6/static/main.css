@@ -1,0 +1,23 @@
+.sb{
+  padding: 4px 8px;
+}
+  #menu-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .menu-item {
+    text-align: center;
+    background-color: rgb(146, 195, 247);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 4px;
+  }
+
+
+  .menu-item .mtitle .item_name{
+  font-size: 22px;
+  }
+  .menu-item .mprice{
+    font-size: 18px;
+    }

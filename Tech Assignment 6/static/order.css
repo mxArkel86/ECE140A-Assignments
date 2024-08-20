@@ -1,0 +1,17 @@
+
+  
+  form div *{
+  font-size: 18px;
+  display: block;
+  margin: 4px 0;
+  }
+  
+  form div{
+      margin: 12px 0;
+  }
+  form{
+      background-color: rgb(153, 194, 237);
+      margin: 0 8px;
+      border-radius: 12px;
+      padding: 14px;
+  }

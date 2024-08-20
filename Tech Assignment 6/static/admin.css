@@ -1,0 +1,49 @@
+#order-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .order-item {
+    text-align: center;
+    background-color: rgb(166, 234, 136);
+    border-radius: 10px;
+    padding: 8px;
+    margin: 4px;
+  }
+  .menu-item .mtitle .item_id{
+    color: #ce3a3a;
+    font-size: 23px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+  .order-item div {
+    margin: 5px 0;
+  }
+
+  .order-item div span:first-child{
+    font-weight: 600;
+    color: #4376ee;
+  }
+
+  form{
+      background-color: rgb(244, 153, 132);
+      margin: 0 8px;
+      border-radius: 12px;
+      padding: 14px;
+  }
+
+  form div{
+      margin: 8px 0;
+  }
+
+  .form-title{
+      font-size: 20px;
+      font-weight: 600;
+  }
+  .order-item div button{
+    color: white;
+  }
+  .del-order{
+    background-color: #777;
+  }

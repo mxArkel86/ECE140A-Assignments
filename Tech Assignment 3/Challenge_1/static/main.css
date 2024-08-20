@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+}
+
+header{
+    background-color: #D64550;
+}
+header a{
+    background-color: transparent;
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+}
+header a:hover{
+    background-color: #E68A75;
+}
+.time-template p{
+    margin: 6px 0;
+}
+.time-template h1{
+    margin: 0;
+    font-size: 24px;
+    font-weight: 300;
+}
+#clock-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: row;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="static/order.css" rel="stylesheet">
+        <link href="static/main.css" rel="stylesheet">
+        <script src="static/main.js"></script>
+        <script src="static/order.js"></script>
+    </head>
+    <body>
+        <h1>Menu</h1>
+        
+        <div id="menu-grid">
+
+        </div>
+        <h1>Order Form</h1>
+        <form id="order_add" action="/order" method="POST" style="width: max-content;">
+            <div>
+                <label>Item</label>
+                <select name="id" required>
+                    <option value="">-- select an option --</option>
+                  
+                </select>
+            </div>
+            <div>
+                <label>Name:</label>
+                <input name="cust_name" type="text" maxlength="100" minlength="3" pattern="^[A-z ]+$" title="name must only be made up of letters and spaces" required>
+            </div>
+            <div>
+                <label>Quantity:</label>
+                <input name="quantity" type="number" min="1" step="1" max="999" required>
+            </div>
+            <div>
+                <label>Price:</label>
+                <label id="current_item_price"></label>
+            </div>
+            <input class="sb" type="submit" value="Submit">
+        </form>
+        <div class="menu-item" hidden>
+            <div class="mtitle">
+            <span class="item_name"></span>
+            </div>
+            <div class="mprice">
+            <span>( $</span>
+            <span class="item_price"> </span>
+            <span>)</span>
+            </div>
+        </div>
+    </body>
+</html>
